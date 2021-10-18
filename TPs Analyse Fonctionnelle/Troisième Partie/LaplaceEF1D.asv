@@ -1,0 +1,19 @@
+a = 0;
+b = 1;
+n = 10; % nb éléments maillage
+f = @(x) -2;
+M = 49;
+T = 0.1;
+x= a + (1:M)*h;
+uan = (x-a).*(x-b);
+h = (b-a)/n;
+
+A = full(gallery('tridiag',M,-1/h,2/h,-1/h));
+B = zeros(1,n);
+B(1) = h*f(x(1))/2;
+for i=2:n-1;
+    B(i) = h*f(x(i));
+end
+B(n) =  h*f(x(n))/2;
+    
+u 
